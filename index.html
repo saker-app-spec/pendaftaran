@@ -15,6 +15,7 @@
             animation: fadeInUp 0.8s ease-out forwards;
         }
     </style>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 
@@ -98,6 +99,16 @@
             <p class="font-medium text-slate-300">&copy; 2026 Sekolah Unggul Terpadu. All rights reserved.</p>
         </div>
     </footer>
-
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
