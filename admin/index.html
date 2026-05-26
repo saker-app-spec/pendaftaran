@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Admin - Sekolah Unggul Terpadu</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</head>
+<script>
+    // Mengambil data yang disimpan oleh halaman Admin CMS
+    fetch('data/identity.json')
+        .then(response => response.json())
+        .then(data => {
+            // Otomatis mengganti Nama Sekolah di Navbar dan Hero
+            document.querySelectorAll('.nama-sekolah-text').forEach(el => {
+                el.innerText = data.nama_sekolah;
+            });
+            // Otomatis mengganti sambutan kepala sekolah
+            document.getElementById('sambutan-text').innerText = data.sambutan;
+            document.getElementById('kepsek-name').innerText = data.nama_kepsek;
+        })
+        .catch(err => console.log("Gagal memuat data CMS, menggunakan teks bawaan HTML."));
+</script>
+<body>
+</body>
+</html>

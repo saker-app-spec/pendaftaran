@@ -1,0 +1,24 @@
+# Konfigurasi penyimpanan otomatis ke GitHub Anda
+backend:
+  name: github
+  repo: username-github-anda/nama-repository-anda # Ganti dengan repo github anda nanti
+  branch: main
+
+media_folder: "assets/images" # Tempat menyimpan foto yang diupload dari admin
+public_folder: "/assets/images"
+
+# Pengaturan Form Dashboard Admin
+collections:
+  - name: "pengaturan_umum"
+    label: "Pengaturan Umum"
+    files:
+      - file: "data/identity.json" # Data hasil ketikan admin disimpan di file JSON ini
+        label: "Identitas Sekolah"
+        name: "identity"
+        fields:
+          - { label: "Nama Sekolah", name: "nama_sekolah", widget: "string" }
+          - { label: "Slogan Sekolah", name: "slogan", widget: "string" }
+          - { label: "Logo Sekolah", name: "logo", widget: "image" }
+          - { label: "Link Google Form Pendaftaran", name: "link_ppdb", widget: "string" }
+          - { label: "Sambutan Kepala Sekolah", name: "sambutan", widget: "text" }
+          - { label: "Nama Kepala Sekolah", name: "nama_kepsek", widget: "string" }
